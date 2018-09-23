@@ -1,0 +1,125 @@
+swagger: "2.0"
+info:
+  description: "This is a service for receiving video clips, cutting the parts where there is no sound or low background noise and retreiving said converted video."
+  version: "1.0.0"
+  title: "Video silence remover"
+  contact:
+    email: "brunoleonelopes@gmail.com"
+basePath: "/v1"
+tags:
+- name: "videos"
+  description: "Videos for conversion"
+paths:
+  /videos:
+    post:
+      tags:
+      - "videos"
+      summary: "Receives a video and starts converting it"
+      description: ""
+      x-swagger-router-controller: "business.controllers.videos_controller"
+      operationId: "post_video"
+      consumes:
+      - "multipart/form-data"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "formData"
+        name: "file"
+        description: "File with dataset photo"
+        required: true
+        type: file
+      responses:
+        200:
+          description: "Started conversion"
+        400:
+          description: "Invalid input"
+        500:
+          description: "Internal server error"
+    get:
+      tags:
+      - "videos"
+      summary: "Request for the list of videos"
+      description: ""
+      x-swagger-router-controller: "business.controllers.videos_controller"
+      operationId: "get_videos"
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: "Videos list retrieved"
+        400:
+          description: "Invalid input"
+        500:
+          description: "Internal server error"
+  /videos/{_id}:
+    get:
+      tags:
+      - "videos"
+      summary: "Request for the cutted video"
+      description: ""
+      x-swagger-router-controller: "business.controllers.videos_controller"
+      operationId: "get_video"
+      produces:
+      - "multipart/form-data"
+      consumes:
+      - "application/json"
+      parameters:
+      - name: "_id"
+        in: "path"
+        description: "Id of the Video to be retrieved"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Video retrieved"
+          schema:
+            type: "file"
+        400:
+          description: "Invalid input"
+        500:
+          description: "Internal server error"
+    delete:
+      tags:
+      - "videos"
+      summary: "Delete a video"
+      description: ""
+      x-swagger-router-controller: "business.controllers.videos_controller"
+      operationId: "delete_video"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "_id"
+        in: "path"
+        description: "Id of the Video to be retrieved"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Video successfully deleted"
+        400:
+          description: "Invalid input"
+        500:
+          description: "Internal server error"
+  /videos/{_id}/status:
+    get:
+      tags:
+      - "videos"
+      summary: "Request for the cutted video"
+      description: ""
+      x-swagger-router-controller: "business.controllers.videos_controller"
+      operationId: "get_video_status"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "_id"
+        in: "path"
+        description: "Id of the Video to be retrieved"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Status"
+        400:
+          description: "Invalid input"
+        500:
+          description: "Internal server error"
