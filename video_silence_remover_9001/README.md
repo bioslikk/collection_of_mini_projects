@@ -19,7 +19,6 @@ There are 3 main components.
 ->   mongoDB database to store the metadata related with the videos
 
 
-
 ## Build images
 If you have docker installed and can run it without admin permissions (sudo)
 run
@@ -47,8 +46,8 @@ This tool satisfies every requirement that was asked for the challenge
 and does it with an high degree of elegance and simplicity.
 Having said that I was only able to take the weekend to do this challenge. Because of that there are certain things that could be improved but didn't because of that time constraint.
 
-First instead of using mondoDB to store the metadata of the videos a faster alternative would be
-REDIS. I did not use it because the bottleneck is in the video proccess and using redis would make me take more time to study the python-redis interface.
+First instead of using mondoDB to store the progress of the videos, a faster alternative would be
+REDIS. I did not use it because the bottleneck is in the video process and using redis would make me take more time to study the python-redis interface.
 
 For the video editing process, the celery lib would be a much more elegant alternative to run those long running
  tasks in the background (http://flask.pocoo.org/docs/0.12/patterns/celery/)
