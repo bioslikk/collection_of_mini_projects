@@ -1,14 +1,14 @@
 # collection_of_mini_projects
-A collection of projects that were developed by Bruno Lopes
+A collection of projects that were developed by Bruno Lopes.
 
-**note**: read the 'README.md' inside each project
+**note**: read the 'README.md' inside each project.
 
 ## Video Silence Remover 9001!
 
 A tool that removes the portions of a mp4 video that are deemed silent.
 It has a React interface, a back-end REST api developed in python/flask, and a Mongo database.
 
-Duration 20h
+Duration 20h.
 ## DS4NP
 
 This project was developed as part of my dissertation for my master's degree.
