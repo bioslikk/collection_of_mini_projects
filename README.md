@@ -1,7 +1,7 @@
 # collection_of_mini_projects
 A collection of projects that were developed by Bruno Lopes.
 
-**note**: read the 'README.md' inside each project.
+**note**: the 'README.md' inside each folder gives a brief overview of that project.
 
 ## Video Silence Remover 9001!
 
